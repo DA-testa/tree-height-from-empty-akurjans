@@ -1,28 +1,20 @@
 import sys
 import threading
 
-
 def compute_height(n, parents):
-    a= [0]*n
-    root= parents.index(-1)
-
-    def dfs(i) :
-        if a[i] != 0:
-            
-            return a[i]
-        
-        if parents[i] == -1:
-            
-            a[i] = 1
-        else:
-            a[i] = 1 + dfs(parents[i])
-
-        return a[i]
-                
+    height = [0] * n
     for i in range(n):
-        dfs(i)
-
-    return max(a)
+       if height[i] == 0:
+           a = 1
+           h = i
+           while parents[h] != -1:
+             h = parents[h]
+             if height[h] !=0:
+                 cur_h += height[h]
+                 break
+             a += 1
+           height[i] = a
+    return max(height)
 
 def main():
     
