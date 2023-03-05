@@ -6,9 +6,10 @@ def compute_height(n, parents):
     # Write this function
     x=np.array(parents)
     
+    Node={}
     max_height = 0
-    max_height_ch=0
-    node_mh={}
+    augstums=0
+    
     # Your code here
     k=0
   
@@ -16,7 +17,6 @@ def compute_height(n, parents):
         k=i
         while True:
             if x[i]==-1:
-                #max_height=0
                 k=i
                 break
             else:
@@ -24,26 +24,26 @@ def compute_height(n, parents):
                 
                 i=x[i]
                 
-                if i in node_mh.keys():
+                if i in Node.keys():
                     
-                    max_height=max_height+node_mh.get(i)
-                    node_mh[k]=max_height
+                    max_height=max_height+Node.get(i)
+                    Node[k]=max_height
                     k=i
                     break
                 else:
-                    node_mh[k]=max_height
+                    Node[k]=max_height
 
                  
                 
                 
-        if max_height_ch<max_height:
-            max_height_ch=max_height
+        if augstums<max_height:
+            augstums=max_height
         max_height=0
 
         
     
 
-    return max_height_ch+1
+    return austums+1
 
 
 def main():
@@ -65,7 +65,7 @@ def main():
                 max_augstums = compute_height(n, parents)
                 print(max_augstums)
         else: 
-            print ("Error: invalid filename")
+            print ("error - invalid filename")
 
 
         
