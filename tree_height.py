@@ -1,27 +1,83 @@
 # python3
-
+# 221RDB420 Aleksandrs Kurjans
 import sys
 import threading
-import numpy
-
+import numpy as np
 
 def compute_height(n, parents):
     # Write this function
+    
+    x=np.array(parents)
     max_height = 0
+    
+    max_height_1=0
+    
+    node={}
     # Your code here
-    return max_height
+    a=0
+  
+    for i in range(n):
+        a=i
+        while True:
+            if x[i]==-1:
+               a=i
+                break
+            else:
+                max_height+=1
+                
+                i=x[i]
+                  if i in node_mh.keys():
+                    max_height=max_height+node.get(i)
+                    node[a]=max_height
+                    a=i
+                    break
+                else:
+                    node[a]=max_height
 
+                
+                
+        if max_height_1<max_height:
+            max_height_1=max_height
+        max_height=0
 
+    return max_height_1+1
 def main():
-    # implement input form keyboard and from files
+    text=input()
+    if "I"in text:
+        n=input()
+        parents=input().split(" ")
+        parents=map(int,parents)
+        parents=list(parents)
+        print(compute_height(int(n),parents))
+    elif "F"in text:
+        file_name=input()
+        if "a" in file_name:
+            print("error")
+            
+        else:
+            
+            fails=open("./test/"+file_name)
+            n=fails.readline()
+            n=int(n)
+            parents=fails.readline()
+            parents=parents.split(" ")
+            parents=map(int,parents)
+            parents=list(parents)
+            print(compute_height(n,parents))
+            fails.close()
+
+
+            
+
+        pass
     
     # let user input file name to use, don't allow file names with letter a
     # account for github input inprecision
-    
+
     # input number of elements
     # input values in one variable, separate with space, split these values in an array
     # call the function and output it's result
-    pass
+
 
 # In Python, the default limit on recursion depth is rather low,
 # so raise it here for this problem. Note that to take advantage
@@ -29,5 +85,3 @@ def main():
 sys.setrecursionlimit(10**7)  # max depth of recursion
 threading.stack_size(2**27)   # new thread will get stack of such size
 threading.Thread(target=main).start()
-main()
-# print(numpy.array([1,2,3]))
