@@ -1,47 +1,53 @@
-# python3
-# 221RDB420 Aleksandrs Kurjans
 import sys
 import threading
 import numpy as np
 
 def compute_height(n, parents):
     # Write this function
-    
     x=np.array(parents)
+    
     max_height = 0
-    
-    max_height_1=0
-    
-    node={}
+    max_height_ch=0
+    node_mh={}
     # Your code here
-    a=0
+    k=0
   
     for i in range(n):
-        a=i
+        k=i
         while True:
             if x[i]==-1:
-               a=i
+                #max_height=0
+                k=i
                 break
             else:
                 max_height+=1
                 
                 i=x[i]
-                  if i in node_mh.keys():
-                    max_height=max_height+node.get(i)
-                    node[a]=max_height
-                    a=i
+                
+                if i in node_mh.keys():
+                    
+                    max_height=max_height+node_mh.get(i)
+                    node_mh[k]=max_height
+                    k=i
                     break
                 else:
-                    node[a]=max_height
+                    node_mh[k]=max_height
 
+                 
                 
                 
-        if max_height_1<max_height:
-            max_height_1=max_height
+        if max_height_ch<max_height:
+            max_height_ch=max_height
         max_height=0
 
-    return max_height_1+1
+        
+    
+
+    return max_height_ch+1
+
+
 def main():
+    
     text=input()
     if "I"in text:
         n=input()
@@ -50,13 +56,14 @@ def main():
         parents=list(parents)
         print(compute_height(int(n),parents))
     elif "F"in text:
-        file_name=input()
-        if "a" in file_name:
+        
+        faila_nosaukums=input()
+        if "a" in faila_nosaukums:
             print("error")
             
         else:
             
-            fails=open("./test/"+file_name)
+            fails=open("./test/"+faila_nosaukums)
             n=fails.readline()
             n=int(n)
             parents=fails.readline()
@@ -66,8 +73,6 @@ def main():
             print(compute_height(n,parents))
             fails.close()
 
-
-            
 
         pass
     
