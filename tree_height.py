@@ -32,7 +32,7 @@ def compute_height(n, parents):
                     k=i
                     break
                 else:
-                    node_mh[k]=max_height
+                    Nods[k]=max_height
 
                  
                 
