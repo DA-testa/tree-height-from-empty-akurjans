@@ -7,8 +7,8 @@ def compute_height(n, parents):
     x=np.array(parents)
     
     max_height = 0
-    max_height_ch=0
-    node_mh={}
+    max_height_1=0
+    node={}
     # Your code here
     k=0
   
@@ -24,26 +24,26 @@ def compute_height(n, parents):
                 
                 i=x[i]
                 
-                if i in node_mh.keys():
+                if i in node.keys():
                     
-                    max_height=max_height+node_mh.get(i)
-                    node_mh[k]=max_height
+                    max_height=max_height+node.get(i)
+                    node[k]=max_height
                     k=i
                     break
                 else:
-                    node_mh[k]=max_height
+                    node[k]=max_height
 
                  
                 
                 
-        if max_height_ch<max_height:
-            max_height_ch=max_height
+        if max_height_1<max_height:
+            max_height_1=max_height
         max_height=0
 
         
     
 
-    return max_height_ch+1
+    return max_height_1+1
 
 
 def main():
@@ -58,12 +58,12 @@ def main():
     elif "F"in text:
         
         faila_nosaukums=input()
-        if "a" in faila_nosaukums:
+        if "a" in file_name:
             print("error")
             
         else:
             
-            fails=open("./test/"+faila_nosaukums)
+            fails=open("./test/"+file_name)
             n=fails.readline()
             n=int(n)
             parents=fails.readline()
