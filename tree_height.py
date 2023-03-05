@@ -53,8 +53,8 @@ def main():
     if "I" in text or "i" in text:
         n=int(input())
         parents = list(map(int, input().split()))
-        max_augstums = compute_height(n, parents)
-        print(max_augstums)
+        max_aug = compute_height(n, parents)
+        print(max_aug)
         
     if "F" in text:
         filename = input()
@@ -63,10 +63,10 @@ def main():
             with open (file) as file:
                 n=int (file.readline())
                 parents = list(map(int, file.readline().strip().split()))
-                max_augstums = compute_height(n, parents)
-                print(max_augstums)
+                max_aug = compute_height(n, parents)
+                print(max_aug)
         else: 
-            print ("Error: invalid filename")
+            print ("invalid filename")
 
 
         
