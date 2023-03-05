@@ -8,7 +8,7 @@ def compute_height(n, parents):
     
     max_height = 0
     augstums=0
-    node_mh={}
+    Nods={}
     # Your code here
     k=0
   
@@ -16,18 +16,19 @@ def compute_height(n, parents):
         k=i
         while True:
             if x[i]==-1:
-                #max_height=0
+                
                 k=i
+                
                 break
             else:
                 max_height+=1
                 
                 i=x[i]
                 
-                if i in node_mh.keys():
+                if i in Nods.keys():
                     
-                    max_height=max_height+node_mh.get(i)
-                    node_mh[k]=max_height
+                    max_height=max_height+Nods.get(i)
+                    Nods[k]=max_height
                     k=i
                     break
                 else:
