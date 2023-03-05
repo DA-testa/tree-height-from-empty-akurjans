@@ -7,7 +7,7 @@ def compute_height(n, parents):
     x=np.array(parents)
     
     max_height = 0
-    max_height_1=0
+    max_heightK=0
     node={}
     # Your code here
     k=0
@@ -16,7 +16,7 @@ def compute_height(n, parents):
         k=i
         while True:
             if x[i]==-1:
-                #max_height=0
+                
                 k=i
                 break
             else:
@@ -36,14 +36,14 @@ def compute_height(n, parents):
                  
                 
                 
-        if max_height_1<max_height:
-            max_height_1=max_height
+        if max_heightK<max_height:
+            max_heightK=max_height
         max_height=0
 
         
     
 
-    return max_height_1+1
+    return max_heightK+1
 
 
 def main():
